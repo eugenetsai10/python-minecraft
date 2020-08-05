@@ -1,1 +1,123 @@
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create() 
+x,y,z=mc.player.getTilePos()
+mc.setSign(x,y,z,63,0,"wolves's","","world","")
+
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+
+
+while True:
+    x,y,z=mc.player.getTilePos()
+    mc.getBlocks(x,y,z,x+10,y,z+10)
+    a = mc.getBlock(x,y-1,z)
+    if a == 95:
+        mc.setSign(x,y,z,63,0,"","小心","陷阱","")
+    if a==35:
+        mc.setSign(x,y,z,63,0,"","小心","死路","")
+    if a == 251:
+        mc.setSign(x,y,z,63,0,"","請","右轉","")
+    if a == 159:
+        mc.setSign(x,y,z,63,0,"","請","左轉","")
+
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+while True:
+    hits=mc.events.pollBlockHits()
+    if len(hits)>0:
+        hit=hits[0]
+        x,y,z=hit.pos.x,hit.pos.y,hit.pos.z
+        block = mc.getBlock(x,y,z)
+        print("恭喜你獵到了"+str(block))
+
+
+
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+while True:
+    hits=mc.events.pollBlockHits()
+    if len(hits)>0:
+        hit=hits[0]
+        x,y,z=hit.pos.x,hit.pos.y,hit.pos.z
+        mc.setBlock(x,y,z,41)
+        
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+while True:
+    hits=mc.events.pollProjectileHits()
+    if len(hits)>0:
+        hit=hits[0]
+        x,y,z=hit.pos.x,hit.pos.y,hit.pos.z
+        mc.createExplosion(x,y,z,5)
+        
+        
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+while True:
+    hits=mc.events.pollBlockHits()
+    if len(hits)>0:
+        hit=hits[0]
+        x,y,z=hit.pos.x,hit.pos.y,hit.pos.z
+        mc.player.setPos(x,y,z)
+        mc.spawnEntity(x,y,z,99)
+        
+        
+        
+        
+        
+        
+        
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+
+import random,time
+pos=mc.player.getPos()
+while True:
+    x=pos.x+random.uniform(-10,10)
+    z=pos.z+random.uniform(-10,10)
+    y=pos.y+30
+    mc.spawnEntity(x,y,z,55)
+    time.sleep(0.5)
+
+
+
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+x,y,z=mc.player.getTilePos()
+for i in range(20):
+   
+    import random
+    random= randrange 
+    
+    
+    mc.setBlocks(x+i,y-1,z+i,x+i+2,y-1,z+i,57)
+
+
+
+
+
+    mc.setBlock(x+i,y-1,z,56)
+    mc.setBlock(x-i,y-1,z,56)
+    mc.setBlock(x,y-1,z+i,56)
+    mc.setBlock(x,y-1,z-i,56)
+    mc.setBlock(x+i,y-1,z+i,56)
+    mc.setBlock(x-i,y-1,z+i,56)
+    mc.setBlock(x+i,y-1,z-i,56)
+    mc.setBlock(x+-i,y-1,z-i,56)
+
+
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+x,y,z=mc.player.getTilePos()
+def tree(x,y,z):
+    mc.setBlocks(x-1,y+3,z-1,x+1,y+5,z+1,161)
+    mc.setBlocks(x,y,z,x,y+4,z,95,12)
+
+for i in range (10):
+    tree(x+i*5,y,z)
+    tree(x+i*5,y,z+1)
+    tree(x+i*5,y,z+2)
+    tree(x+i*5,y,z+3)
+    tree(x+i*5,y,z+4)
+
 
